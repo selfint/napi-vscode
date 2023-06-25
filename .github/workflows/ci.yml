@@ -16,6 +16,7 @@ jobs:
     - run: yarn install
     - run: yarn run core:install
     - run: yarn run core:build
+    - run: yarn run core:test
     - run: xvfb-run -a yarn test
       if: runner.os == 'Linux'
     - run: yarn test
