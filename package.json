@@ -29,7 +29,7 @@
     "core:build": "yarn workspace @napi-vscode/core build",
     "core:test": "yarn workspace @napi-vscode/core test",
     "lint": "eslint src --ext ts",
-    "test": "yarn run pretest && node ./out/test/runTest.js"
+    "test": "yarn run core:test && yarn run pretest && node ./out/test/runTest.js"
   },
   "workspaces": [
     "core"
