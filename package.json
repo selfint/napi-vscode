@@ -1,5 +1,5 @@
 {
-  "name": "napi-vscode",
+  "name": "@napi-vscode/extension",
   "displayName": "napi-vscode",
   "description": "",
   "license": "MIT",
@@ -25,9 +25,15 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "yarn run compile && yarn run lint",
+    "core:install": "yarn workspace @napi-vscode/core install",
+    "core:build": "yarn workspace @napi-vscode/core build",
+    "core:test": "yarn workspace @napi-vscode/core test",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "yarn run core:test && yarn node ./out/test/runTest.js"
   },
+  "workspaces": [
+    "core"
+  ],
   "devDependencies": {
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",

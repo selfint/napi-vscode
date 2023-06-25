@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  build:
+  test:
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
@@ -14,6 +14,8 @@ jobs:
       with:
         node-version: 16.x
     - run: yarn install
+    - run: yarn run core:install
+    - run: yarn run core:build
     - run: xvfb-run -a yarn test
       if: runner.os == 'Linux'
     - run: yarn test
