@@ -95,7 +95,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@napi-vscode/core@workspace:core":
+"@napi-vscode/core@workspace:*, @napi-vscode/core@workspace:core":
   version: 0.0.0-use.local
   resolution: "@napi-vscode/core@workspace:core"
   dependencies:
@@ -108,6 +108,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@napi-vscode/extension@workspace:."
   dependencies:
+    "@napi-vscode/core": "workspace:*"
     "@types/glob": ^8.1.0
     "@types/mocha": ^10.0.1
     "@types/node": 20.2.5
