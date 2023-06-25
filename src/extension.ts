@@ -5,7 +5,9 @@ import * as vscode from 'vscode';
 import * as core from "@napi-vscode/core";
 
 export function helloFromCore(): string {
-	return `Hello from napi-vscode! 2 + 2 = ${core.sum(2, 2)}`;
+	const text = "function main() {}";
+	const wrapper = new core.TsWrapper(text);
+	return wrapper.getText();
 }
 
 // This method is called when your extension is activated
